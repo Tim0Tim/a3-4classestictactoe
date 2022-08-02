@@ -18,7 +18,7 @@ namespace a3_4classestictactoe
         //7 8 9   c  will change all numbers to zero when complete
         static void Main()
         {
-            List<string> Usabletic = new List<string>();
+            List<string> Usabletic = new List<string>(); 
             Usabletic.Add("a1");
             Usabletic.Add("a2");
             Usabletic.Add("a3");
