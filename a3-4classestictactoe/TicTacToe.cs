@@ -12,6 +12,7 @@ namespace a3_4classestictactoe
         private string _used;
         private int p1w = 0; // player one wins if = 1
         private int p2w = 0; // player two wins if = 1
+        private int[,] Tic;
 
         private List<string> Usabletic;
         public TicTacToe()
@@ -41,7 +42,23 @@ namespace a3_4classestictactoe
         {
             if (Usabletic.Count == 5)
             {
-
+                //conditions for player 1 to win
+                if ((Usabletic.Contains("a1") && Usabletic.Contains("a2") && Usabletic.Contains("a3") && Tic[0, 0] == 1 && Tic[0, 1] == 1 && Tic[0, 2] == 1) ||
+                    (Usabletic.Contains("b1") && Usabletic.Contains("b2") && Usabletic.Contains("b3") && Tic[1, 0] == 1 && Tic[1, 1] == 1 && Tic[1, 2] == 1) ||
+                    (Usabletic.Contains("c1") && Usabletic.Contains("c2") && Usabletic.Contains("c3") && Tic[2, 0] == 1 && Tic[2, 1] == 1 && Tic[2, 2] == 1) ||
+                    (Usabletic.Contains("a1") && Usabletic.Contains("b2") && Usabletic.Contains("c3") && Tic[0, 0] == 1 && Tic[1, 1] == 1 && Tic[2, 2] == 1) ||
+                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 1 && Tic[1, 1] == 1 && Tic[0, 2] == 1))
+                {
+                    Play1SetWin();
+                }
+                if ((Usabletic.Contains("a1") && Usabletic.Contains("a2") && Usabletic.Contains("a3") && Tic[0, 0] == 2 && Tic[0, 1] == 2 && Tic[0, 2] == 2) ||
+                    (Usabletic.Contains("b1") && Usabletic.Contains("b2") && Usabletic.Contains("b3") && Tic[1, 0] == 2 && Tic[1, 1] == 2 && Tic[1, 2] == 2) ||
+                    (Usabletic.Contains("c1") && Usabletic.Contains("c2") && Usabletic.Contains("c3") && Tic[2, 0] == 2 && Tic[2, 1] == 2 && Tic[2, 2] == 2) ||
+                    (Usabletic.Contains("a1") && Usabletic.Contains("b2") && Usabletic.Contains("c3") && Tic[0, 0] == 2 && Tic[1, 1] == 2 && Tic[2, 2] == 2) ||
+                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 2 && Tic[1, 1] == 2 && Tic[0, 2] == 2))
+                {
+                    Play2SetWin();
+                }
             }
         }
 
