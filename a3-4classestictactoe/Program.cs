@@ -6,9 +6,7 @@ namespace a3_4classestictactoe
 {
     internal class Program
     {
-        int p1w = 0; // player one wins if = 1
-        int p2w = 0; // player two wins if = 1
-        public int turn = 0;
+
         
         //0,0 = 1
         //1,1 = 5
