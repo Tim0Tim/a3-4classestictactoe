@@ -13,6 +13,7 @@ namespace a3_4classestictactoe
         private int p1w = 0; // player one wins if = 1
         private int p2w = 0; // player two wins if = 1
         private int[,] Tic;
+        private string wmess;
 
         private List<string> Usabletic;
         public TicTacToe()
@@ -22,6 +23,8 @@ namespace a3_4classestictactoe
             };
 
         }
+
+
 
         public int GetTurn()
         {
@@ -36,6 +39,23 @@ namespace a3_4classestictactoe
         public int Play2SetWin()
         {
             return p2w = 1;
+        }
+
+        public void SetWinMessage()
+        {
+            if(p1w == 1)
+            {
+                wmess = "Player 1 Wins!";
+            }
+            if(p2w == 1)
+            {
+                wmess = "Player 2 Wins!";
+            }
+        }
+
+        public string GetWinMessage()
+        {
+            return wmess;
         }
 
         public void CheckForWin()
@@ -67,6 +87,45 @@ namespace a3_4classestictactoe
             _turn = turn;
         }
 
+        public void ChangeticValue()
+        {
+            if (UseSpot(_used) == "a1")
+            {
+                Tic[0, 0] = GetTurn();
+            }
+            if(UseSpot(_used) == "a2")
+            {
+                Tic[0,1] = GetTurn();
+            }
+            if(UseSpot(_used) == "a3")
+            {
+                Tic[0,2] = GetTurn();
+            }
+            if (UseSpot(_used)== "b1")
+            {
+                Tic[1,0] = GetTurn();
+            }
+            if (UseSpot(_used) == "b2")
+            {
+                Tic[1, 1] = GetTurn();
+            }
+            if (UseSpot(_used) == "b3")
+            {
+                Tic[1, 2] = GetTurn();
+            }
+            if (UseSpot(_used) == "c1")
+            {
+                Tic[1, 0] = GetTurn();
+            }
+            if (UseSpot(_used) == "c2")
+            {
+                Tic[1, 1] = GetTurn();
+            }
+            if (UseSpot(_used) == "c3")
+            {
+                Tic[1, 2] = GetTurn();
+            }
+        }
         public string UseSpot(string used) //work in progress. suposed to hold what has been used or not.
         {
             //Usabletic = new List<string>();
