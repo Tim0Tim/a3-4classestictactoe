@@ -24,7 +24,24 @@ namespace a3_4classestictactoe
 
         }
 
+        public int[,] Getboard()
+        {
+            int[,] tic2 = Tic;
+            return tic2;
+             
+        }
 
+        public void ChangeTurn()
+        {
+            if(GetTurn() == 1)
+            {
+                SetTurn(2);
+            }
+            if(GetTurn() == 2)
+            {
+                SetTurn(1);
+            }
+        }
 
         public int GetTurn()
         {
