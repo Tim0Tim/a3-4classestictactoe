@@ -19,13 +19,14 @@ namespace a3_4classestictactoe
         //7 8 9   c  will change all numbers to zero when complete
         static void Main()
         {
-            
+
 
             //int[,] Tic = /*new int[,]*/{
             //{ 1, 2, 3 }, {4,5,6}, {7,8,9}
             //};
 
-
+            TicTacToe ttt = new TicTacToe();
+     
 
             int i = 0;
             while (i < 10)

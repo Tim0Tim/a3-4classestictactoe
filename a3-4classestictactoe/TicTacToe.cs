@@ -12,24 +12,27 @@ namespace a3_4classestictactoe
         private string _used;
         private int p1w = 0; // player one wins if = 1
         private int p2w = 0; // player two wins if = 1
+        private int draw = 0;
         private int[,] Tic;
         private string wmess;
 
         private List<string> Usabletic;
         public TicTacToe()
         {
-            int[,] Tic = {
+             int[,] Tic = {
             { 0, 0, 0 }, {0,0,0}, {0,0,0}
             };
+            _used = "";
+            Usabletic = new List<string>();
 
         }
 
-        public int[,] Getboard()
-        {
-            int[,] tic2 = Tic;
-            return tic2;
+        //public int[,] Getboard()
+        //{
+        //    int[,] tic2 = Tic;
+        //    return tic2;
              
-        }
+        //}
 
         public void ChangeTurn()
         {
@@ -58,6 +61,11 @@ namespace a3_4classestictactoe
             return p2w = 1;
         }
 
+        public int PlayDrawSet()
+        {
+            return draw = 1;
+        }
+
         public void SetWinMessage()
         {
             if(p1w == 1)
@@ -67,6 +75,10 @@ namespace a3_4classestictactoe
             if(p2w == 1)
             {
                 wmess = "Player 2 Wins!";
+            }
+            if(draw == 1)
+            {
+                wmess = "Draw";
             }
         }
 
@@ -104,41 +116,52 @@ namespace a3_4classestictactoe
             _turn = turn;
         }
 
-        public void ChangeticValue()
+        public string GetChangeValue()
         {
-            if (UseSpot(_used) == "a1")
+            return _used;
+        }
+
+        public void SetChangeValue( string used)
+        {
+            _used = used;
+        }
+        
+        
+        public void ChangeticValue(string used)
+        {
+            if (UseSpot(used) == "a1")
             {
                 Tic[0, 0] = GetTurn();
             }
-            if(UseSpot(_used) == "a2")
+            if(UseSpot(used) == "a2")
             {
                 Tic[0,1] = GetTurn();
             }
-            if(UseSpot(_used) == "a3")
+            if(UseSpot(used) == "a3")
             {
                 Tic[0,2] = GetTurn();
             }
-            if (UseSpot(_used)== "b1")
+            if (UseSpot(used)== "b1")
             {
                 Tic[1,0] = GetTurn();
             }
-            if (UseSpot(_used) == "b2")
+            if (UseSpot(used) == "b2")
             {
                 Tic[1, 1] = GetTurn();
             }
-            if (UseSpot(_used) == "b3")
+            if (UseSpot(used) == "b3")
             {
                 Tic[1, 2] = GetTurn();
             }
-            if (UseSpot(_used) == "c1")
+            if (UseSpot(used) == "c1")
             {
                 Tic[1, 0] = GetTurn();
             }
-            if (UseSpot(_used) == "c2")
+            if (UseSpot(used) == "c2")
             {
                 Tic[1, 1] = GetTurn();
             }
-            if (UseSpot(_used) == "c3")
+            if (UseSpot(used) == "c3")
             {
                 Tic[1, 2] = GetTurn();
             }
