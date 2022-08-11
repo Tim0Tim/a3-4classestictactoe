@@ -19,20 +19,19 @@ namespace a3_4classestictactoe
         private List<string> Usabletic;
         public TicTacToe()
         {
-             int[,] Tic = {
+            int[,] Tic = new int[,]{
             { 0, 0, 0 }, {0,0,0}, {0,0,0}
             };
             _used = "";
             Usabletic = new List<string>();
-
+            //Tic = new int[,];
         }
 
-        //public int[,] Getboard()
-        //{
-        //    int[,] tic2 = Tic;
-        //    return tic2;
-             
-        //}
+        public int[,] Getboard()
+        {
+            int[,] tic2 = Tic;
+            return tic2; 
+        }
 
         public void ChangeTurn()
         {
