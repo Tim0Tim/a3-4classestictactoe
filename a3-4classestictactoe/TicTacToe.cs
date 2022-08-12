@@ -13,7 +13,7 @@ namespace a3_4classestictactoe
         private int p1w = 0; // player one wins if = 1
         private int p2w = 0; // player two wins if = 1
         private int draw = 0;
-        private int[,] Tic;
+        private int[,] Tic = new int[3, 3];
         private string wmess;
 
         private List<string> Usabletic;
@@ -29,20 +29,25 @@ namespace a3_4classestictactoe
 
         public int[,] Getboard()
         {
-            int[,] tic2 = Tic;
-            return tic2; 
+            //int[,] tic2 = Tic;
+            //return tic2; 
+            return Tic;
         }
 
-        public void ChangeTurn()
+        public int ChangeTurn(int turn)
         {
+
             if(GetTurn() == 1)
             {
                 SetTurn(2);
+                turn = GetTurn();
             }
-            if(GetTurn() == 2)
+            else if(GetTurn() == 2)
             {
                 SetTurn(1);
+                turn = GetTurn();
             }
+            return turn;
         }
 
         public int GetTurn()
@@ -171,7 +176,10 @@ namespace a3_4classestictactoe
             if ((used == "a1" || "a2" == used || used == "a3" || used == "b1" || used == "b2" || used == "b3" || used == "c1" || used == "c2" || used == "c3") && (Usabletic.Contains(used) == false))
             {
                 Usabletic.Add(used);
+                ChangeticValue(GetChangeValue());
+                //ChangeTurn(GetTurn());
                 return used;
+
             }
             else
             {
