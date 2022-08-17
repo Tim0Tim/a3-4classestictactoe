@@ -59,8 +59,8 @@ namespace a3_4classestictactoe
                 //start game here
                 Console.WriteLine("What Location would you like to use? (a b c = _A_ , 1 2 3 = <>");
                 string choice = Console.ReadLine();
-                //ttt.UseSpot(choice);
-                ttt.SetChangeValue(choice);
+                ttt.UseSpot(choice);
+                //ttt.SetChangeValue(choice);
                 int t = player;
                 player = ttt.ChangeTurn(t);
                 Console.WriteLine($"Player {player} turn");

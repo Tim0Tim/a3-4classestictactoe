@@ -15,6 +15,7 @@ namespace a3_4classestictactoe
         private int draw = 0;
         private int[,] Tic = new int[3, 3];
         private string wmess;
+        private string value;
 
         private List<string> Usabletic;
         public TicTacToe()
@@ -125,47 +126,47 @@ namespace a3_4classestictactoe
             return _used;
         }
 
-        public void SetChangeValue( string used)
+        public string SetChangeValue( string used)
         {
-            _used = used;
+            return _used = used;
         }
         
         
-        public void ChangeticValue(string used)
+        public void ChangeticValue(string value, int turn)
         {
-            if (UseSpot(used) == "a1")
+            if (UseSpot(value) == "a1")
             {
-                Tic[0, 0] = GetTurn();
+                Tic[0, 0] = turn;
             }
-            if(UseSpot(used) == "a2")
+            else if(UseSpot(value) == "a2")
             {
                 Tic[0,1] = GetTurn();
             }
-            if(UseSpot(used) == "a3")
+            else if(UseSpot(value) == "a3")
             {
                 Tic[0,2] = GetTurn();
             }
-            if (UseSpot(used)== "b1")
+            else if (UseSpot(value) == "b1")
             {
                 Tic[1,0] = GetTurn();
             }
-            if (UseSpot(used) == "b2")
+            else if (UseSpot(value) == "b2")
             {
                 Tic[1, 1] = GetTurn();
             }
-            if (UseSpot(used) == "b3")
+            else if (UseSpot(value) == "b3")
             {
                 Tic[1, 2] = GetTurn();
             }
-            if (UseSpot(used) == "c1")
+            else if (UseSpot(value) == "c1")
             {
                 Tic[1, 0] = GetTurn();
             }
-            if (UseSpot(used) == "c2")
+            else if (UseSpot(value) == "c2")
             {
                 Tic[1, 1] = GetTurn();
             }
-            if (UseSpot(used) == "c3")
+            else if (UseSpot(value) == "c3")
             {
                 Tic[1, 2] = GetTurn();
             }
@@ -175,8 +176,10 @@ namespace a3_4classestictactoe
             //Usabletic = new List<string>();
             if ((used == "a1" || "a2" == used || used == "a3" || used == "b1" || used == "b2" || used == "b3" || used == "c1" || used == "c2" || used == "c3") && (Usabletic.Contains(used) == false))
             {
+                value = used;
                 Usabletic.Add(used);
-                ChangeticValue(GetChangeValue());
+                //string T = GetTurn().ToString();
+                ChangeticValue(SetChangeValue(value),GetTurn());
                 //ChangeTurn(GetTurn());
                 return used;
 
