@@ -126,9 +126,9 @@ namespace a3_4classestictactoe
             return _used;
         }
 
-        public void SetChangeValue( string used)
+        public string SetChangeValue( string used)
         {
-            _used = used;
+            return _used = used;
         }
         
         
