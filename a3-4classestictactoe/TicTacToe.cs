@@ -15,6 +15,7 @@ namespace a3_4classestictactoe
         private int draw = 0;
         private int[,] Tic = new int[3, 3];
         private string wmess;
+        private string value;
 
         private List<string> Usabletic;
         public TicTacToe()
