@@ -170,13 +170,15 @@ namespace a3_4classestictactoe
                     Tic[1, 2] = GetTurn();
                 }
             }
-            public string UseSpot(string used) //work in progress. suposed to hold what has been used or not.
+        public string UseSpot(string used) //work in progress. suposed to hold what has been used or not.
         {
             //Usabletic = new List<string>();
             if ((used == "a1" || "a2" == used || used == "a3" || used == "b1" || used == "b2" || used == "b3" || used == "c1" || used == "c2" || used == "c3") && (Usabletic.Contains(used) == false))
             {
+                value = used;
                 Usabletic.Add(used);
-                ChangeticValue(GetChangeValue());
+                //string T = GetTurn().ToString();
+                ChangeticValue(SetChangeValue(value), GetTurn());
                 //ChangeTurn(GetTurn());
                 return used;
 
