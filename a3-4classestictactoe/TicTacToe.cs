@@ -133,39 +133,39 @@ namespace a3_4classestictactoe
        
             public void ChangeticValue(string value, int turn)
             {
-                if (UseSpot(value) == "a1")
+                if (value == "a1")
                 {
                     Tic[0, 0] = turn;
                 }
-                else if (UseSpot(value) == "a2")
+                else if (value == "a2")
                 {
                     Tic[0, 1] = GetTurn();
                 }
-                else if (UseSpot(value) == "a3")
+                else if (value == "a3")
                 {
                     Tic[0, 2] = GetTurn();
                 }
-                else if (UseSpot(value) == "b1")
+                else if (value == "b1")
                 {
                     Tic[1, 0] = GetTurn();
                 }
-                else if (UseSpot(value) == "b2")
+                else if (value == "b2")
                 {
                     Tic[1, 1] = GetTurn();
                 }
-                else if (UseSpot(value) == "b3")
+                else if (value == "b3")
                 {
                     Tic[1, 2] = GetTurn();
                 }
-                else if (UseSpot(value) == "c1")
+                else if (value == "c1")
                 {
                     Tic[1, 0] = GetTurn();
                 }
-                else if (UseSpot(value) == "c2")
+                else if (value == "c2")
                 {
                     Tic[1, 1] = GetTurn();
                 }
-                else if (UseSpot(value) == "c3")
+                else if (value == "c3")
                 {
                     Tic[1, 2] = GetTurn();
                 }
