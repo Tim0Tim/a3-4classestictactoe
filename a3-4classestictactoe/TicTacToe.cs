@@ -10,14 +10,18 @@ namespace a3_4classestictactoe
     {
         private int _turn;
         private string _used;
-        private int p1w = 0; // player one wins if = 1
-        private int p2w = 0; // player two wins if = 1
-        private int draw = 0;
+        private int pw = 0; // player one wins if = 1 p2 wins if 2 draw if 3
         private int[,] Tic = new int[3, 3];
         private string wmess;
         private string value;
+        //private List<string> options;
+
+
+
+
 
         private List<string> Usabletic;
+        private List<string> options;
         public TicTacToe()
         {
             int[,] Tic = new int[,]{
@@ -25,6 +29,7 @@ namespace a3_4classestictactoe
             };
             _used = "";
             Usabletic = new List<string>();
+            options = new List<string>();
             //Tic = new int[,];
         }
 
@@ -33,6 +38,25 @@ namespace a3_4classestictactoe
             //int[,] tic2 = Tic;
             //return tic2; 
             return Tic;
+        }
+
+        public List<string> GetOptions()
+        {
+            AddOptions();
+            return options;
+        }
+        
+        public void AddOptions()
+        {
+            options.Add("a1");
+            options.Add("a2");
+            options.Add("a3");
+            options.Add("b1");
+            options.Add("b2");
+            options.Add("b3");
+            options.Add("c1");
+            options.Add("c2");
+            options.Add("c3");
         }
 
         public int ChangeTurn(int turn)
@@ -51,6 +75,11 @@ namespace a3_4classestictactoe
             return turn;
         }
 
+        public List<string> GetTic()
+        {
+            return Usabletic;
+        }
+
         public int GetTurn()
         {
             return _turn;
@@ -58,30 +87,31 @@ namespace a3_4classestictactoe
 
         public int Play1SetWin()
         {
-            return p1w = 1;
+            return pw = 1;
         }
 
         public int Play2SetWin()
         {
-            return p2w = 1;
+            return pw = 2;
         }
 
         public int PlayDrawSet()
         {
-            return draw = 1;
+            return pw = 3;
         }
+
 
         public void SetWinMessage()
         {
-            if(p1w == 1)
+            if(pw == 1)
             {
                 wmess = "Player 1 Wins!";
             }
-            if(p2w == 1)
+            if(pw == 2)
             {
                 wmess = "Player 2 Wins!";
             }
-            if(draw == 1)
+            if(pw == 3)
             {
                 wmess = "Draw";
             }
@@ -92,7 +122,7 @@ namespace a3_4classestictactoe
             return wmess;
         }
 
-        public void CheckForWin()
+        public int CheckForWin()//add virdical conditions.
         {
             if (Usabletic.Count == 5)
             {
@@ -114,6 +144,7 @@ namespace a3_4classestictactoe
                     Play2SetWin();
                 }
             }
+            return pw;
         }
 
         public void SetTurn(int turn)
@@ -131,11 +162,11 @@ namespace a3_4classestictactoe
             return _used = used;
         }
        
-            public void ChangeticValue(string value, int turn)
+            public void ChangeticValue(string value)
             {
                 if (value == "a1")
                 {
-                    Tic[0, 0] = turn;
+                    Tic[0, 0] = GetTurn();
                 }
                 else if (value == "a2")
                 {
@@ -159,15 +190,15 @@ namespace a3_4classestictactoe
                 }
                 else if (value == "c1")
                 {
-                    Tic[1, 0] = GetTurn();
+                    Tic[2, 0] = GetTurn();
                 }
                 else if (value == "c2")
                 {
-                    Tic[1, 1] = GetTurn();
+                    Tic[2, 1] = GetTurn();
                 }
                 else if (value == "c3")
                 {
-                    Tic[1, 2] = GetTurn();
+                    Tic[2, 2] = GetTurn();
                 }
             }
         public string UseSpot(string used) //work in progress. suposed to hold what has been used or not.
@@ -178,7 +209,7 @@ namespace a3_4classestictactoe
                 value = used;
                 Usabletic.Add(used);
                 //string T = GetTurn().ToString();
-                ChangeticValue(SetChangeValue(value), GetTurn());
+                ChangeticValue(SetChangeValue(value));
                 //ChangeTurn(GetTurn());
                 return used;
 

@@ -12,24 +12,15 @@ namespace a3_4classestictactoe
         //0,0 = 1
         //1,1 = 5
         //2,2 = 9
-
         //1 2 3   a
         //4 5 6   b
         //7 8 9   c  will change all numbers to zero when complete
         static void Main()
         {
-
-
-            //int[,] Tic = /*new int[,]*/{
-            //{ 1, 2, 3 }, {4,5,6}, {7,8,9}
-            //};
-
             TicTacToe ttt = new TicTacToe();
             int player = 0;
-            //Console.Write(ttt.Getboard().GetValue(0, 0)); Console.Write(ttt.Getboard().GetValue(0, 1)); Console.WriteLine(ttt.Getboard().GetValue(0, 2));
-            //Console.Write(ttt.Getboard().GetValue(1, 0)); Console.Write(ttt.Getboard().GetValue(1, 1)); Console.WriteLine(ttt.Getboard().GetValue(1, 2));
-            //Console.Write(ttt.Getboard().GetValue(2, 0)); Console.Write(ttt.Getboard().GetValue(2, 1)); Console.WriteLine(ttt.Getboard().GetValue(2, 2));
             int i = 0;
+
             while (i < 10)
             {
 
@@ -54,20 +45,45 @@ namespace a3_4classestictactoe
                         }
                     }
                 }
-
+                int mm = 0;
                 //start game here
-                Console.WriteLine("What Location would you like to use? (a b c = _A_ , 1 2 3 = <>");
-                string choice = Console.ReadLine();
-                ttt.UseSpot(choice);
-                if (i >= 3)
+                while (mm == 0)
                 {
-                    //Check for win
+                    Console.WriteLine("What Location would you like to use? (a b c = _A_ , 1 2 3 = <>");
+                    string choice = Console.ReadLine();
+                    if (ttt.GetTic().Contains(choice) == false && ttt.GetOptions().Contains(choice)) //creat tic options
+                    {
+                        ttt.UseSpot(choice);
+                        mm = 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input try again");
+                    }
                 }
+                //Console.WriteLine("What Location would you like to use? (a b c = _A_ , 1 2 3 = <>");
+                //string choice = Console.ReadLine();
+                //        ttt.UseSpot(choice);
+                    if (ttt.CheckForWin() != 0)
+                    {
+                        ttt.SetWinMessage();
+                        Console.WriteLine(ttt.GetWinMessage());
+                        i = 11;
+                    }
                 //ttt.SetChangeValue(choice);
-                int t = player;
-                player = ttt.ChangeTurn(t);
-                Console.WriteLine($"Player {player} turn");
+                if(ttt.CheckForWin() != 0)
+                {
+                    int t = player;
+                    player = ttt.ChangeTurn(t);
+                    Console.WriteLine($"Player {player} turn");
+                }
+
                 //Console.WriteLine(1);
+               
+                
+
+                
+
                 i++;
             }
         }
