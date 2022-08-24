@@ -21,7 +21,7 @@ namespace a3_4classestictactoe
             int player = 0;
             int i = 0;
 
-            while (i < 10)
+            while (i < 9)
             {
 
                 Console.Write(ttt.Getboard().GetValue(0, 0)); Console.Write(ttt.Getboard().GetValue(0, 1)); Console.WriteLine(ttt.Getboard().GetValue(0, 2));
@@ -51,10 +51,10 @@ namespace a3_4classestictactoe
                 {
                     Console.WriteLine("What Location would you like to use? (a b c = _A_ , 1 2 3 = <>");
                     string choice = Console.ReadLine();
-                    if (ttt.GetTic().Contains(choice) == false && ttt.GetOptions().Contains(choice)) //creat tic options
+                    if (ttt.GetTic().Contains(choice) == false && ttt.GetOptions().Contains(choice))
                     {
+                        mm = 2;
                         ttt.UseSpot(choice);
-                        mm = 1;
                     }
                     else
                     {
@@ -71,7 +71,7 @@ namespace a3_4classestictactoe
                         i = 11;
                     }
                 //ttt.SetChangeValue(choice);
-                if(ttt.CheckForWin() != 0)
+                if(ttt.CheckForWin() == 0)
                 {
                     int t = player;
                     player = ttt.ChangeTurn(t);

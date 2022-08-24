@@ -131,7 +131,10 @@ namespace a3_4classestictactoe
                     (Usabletic.Contains("b1") && Usabletic.Contains("b2") && Usabletic.Contains("b3") && Tic[1, 0] == 1 && Tic[1, 1] == 1 && Tic[1, 2] == 1) ||
                     (Usabletic.Contains("c1") && Usabletic.Contains("c2") && Usabletic.Contains("c3") && Tic[2, 0] == 1 && Tic[2, 1] == 1 && Tic[2, 2] == 1) ||
                     (Usabletic.Contains("a1") && Usabletic.Contains("b2") && Usabletic.Contains("c3") && Tic[0, 0] == 1 && Tic[1, 1] == 1 && Tic[2, 2] == 1) ||
-                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 1 && Tic[1, 1] == 1 && Tic[0, 2] == 1))
+                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 1 && Tic[1, 1] == 1 && Tic[0, 2] == 1) ||
+                    (Usabletic.Contains("a1") && Usabletic.Contains("b1") && Usabletic.Contains("c1") && Tic[0, 0] == 1 && Tic[1, 0] == 1 && Tic[2, 0] == 1) ||
+                    (Usabletic.Contains("a2") && Usabletic.Contains("b2") && Usabletic.Contains("c2") && Tic[0, 2] == 1 && Tic[1, 2] == 1 && Tic[2, 2] == 1) ||
+                    (Usabletic.Contains("a2") && Usabletic.Contains("b2") && Usabletic.Contains("c2") && Tic[0, 1] == 1 && Tic[1, 1] == 1 && Tic[2, 1] == 1))
                 {
                     Play1SetWin();
                 }
@@ -139,9 +142,16 @@ namespace a3_4classestictactoe
                     (Usabletic.Contains("b1") && Usabletic.Contains("b2") && Usabletic.Contains("b3") && Tic[1, 0] == 2 && Tic[1, 1] == 2 && Tic[1, 2] == 2) ||
                     (Usabletic.Contains("c1") && Usabletic.Contains("c2") && Usabletic.Contains("c3") && Tic[2, 0] == 2 && Tic[2, 1] == 2 && Tic[2, 2] == 2) ||
                     (Usabletic.Contains("a1") && Usabletic.Contains("b2") && Usabletic.Contains("c3") && Tic[0, 0] == 2 && Tic[1, 1] == 2 && Tic[2, 2] == 2) ||
-                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 2 && Tic[1, 1] == 2 && Tic[0, 2] == 2))
+                    (Usabletic.Contains("c1") && Usabletic.Contains("b2") && Usabletic.Contains("a3") && Tic[2, 0] == 2 && Tic[1, 1] == 2 && Tic[0, 2] == 2) ||
+                    (Usabletic.Contains("a1") && Usabletic.Contains("b1") && Usabletic.Contains("c1") && Tic[0, 0] == 2 && Tic[1, 0] == 2 && Tic[2, 0] == 2) ||
+                    (Usabletic.Contains("a2") && Usabletic.Contains("b2") && Usabletic.Contains("c2") && Tic[0, 2] == 2 && Tic[1, 2] == 2 && Tic[2, 2] == 2) ||
+                    (Usabletic.Contains("a2") && Usabletic.Contains("b2") && Usabletic.Contains("c2") && Tic[0, 1] == 2 && Tic[1, 1] == 2 && Tic[2, 1] == 2))
                 {
                     Play2SetWin();
+                }// draw conditions
+                if (Tic[0, 0] != 0 && Tic[0, 1] != 0 && Tic[0, 2] != 0 && Tic[1, 0] != 0 && Tic[1, 1] != 0 && Tic[1, 2] != 0 && Tic[2, 0] != 0 && Tic[2, 1] != 0 && Tic[2, 2] != 0 && pw == 0)
+                {
+                    PlayDrawSet();
                 }
             }
             return pw;
