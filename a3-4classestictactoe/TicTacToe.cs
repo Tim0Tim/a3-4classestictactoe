@@ -14,7 +14,6 @@ namespace a3_4classestictactoe
         private int[,] Tic = new int[3, 3];
         private string wmess;
         private string value;
-        //private List<string> options;
 
 
 
@@ -30,13 +29,10 @@ namespace a3_4classestictactoe
             _used = "";
             Usabletic = new List<string>();
             options = new List<string>();
-            //Tic = new int[,];
         }
 
         public int[,] Getboard()
         {
-            //int[,] tic2 = Tic;
-            //return tic2; 
             return Tic;
         }
 
@@ -115,6 +111,10 @@ namespace a3_4classestictactoe
             {
                 wmess = "Draw";
             }
+            else
+            {
+                wmess = " ";
+            }
         }
 
         public string GetWinMessage()
@@ -122,7 +122,7 @@ namespace a3_4classestictactoe
             return wmess;
         }
 
-        public int CheckForWin()//add virdical conditions.
+        public int CheckForWin()
         {
             if (Usabletic.Count == 5)
             {
@@ -211,16 +211,13 @@ namespace a3_4classestictactoe
                     Tic[2, 2] = GetTurn();
                 }
             }
-        public string UseSpot(string used) //work in progress. suposed to hold what has been used or not.
+        public string UseSpot(string used)
         {
-            //Usabletic = new List<string>();
             if ((used == "a1" || "a2" == used || used == "a3" || used == "b1" || used == "b2" || used == "b3" || used == "c1" || used == "c2" || used == "c3") && (Usabletic.Contains(used) == false))
             {
                 value = used;
                 Usabletic.Add(used);
-                //string T = GetTurn().ToString();
                 ChangeticValue(SetChangeValue(value));
-                //ChangeTurn(GetTurn());
                 return used;
 
             }
@@ -235,11 +232,3 @@ namespace a3_4classestictactoe
 
     }
 }
-//if (p1w == 1)
-//{
-//    Console.WriteLine("Player 1 Wins"); win messages
-//}
-//else if (p2w == 1)
-//{
-
-//}
