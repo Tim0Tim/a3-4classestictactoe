@@ -70,7 +70,7 @@ namespace a3_4classestictactoe
                     player = ttt.ChangeTurn(t);
                     Console.WriteLine($"Player {player} turn");
                 }
-
+                ttt.CheckForWin();
                 ttt.SetWinMessage();
                 Console.WriteLine(ttt.GetWinMessage());
 
